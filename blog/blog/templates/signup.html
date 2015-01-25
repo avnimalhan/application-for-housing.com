@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Login </title>
+        {% load staticfiles %}
+        <script type="text/javascript" src="{% static "tinymce/js/tinymce/tinymce.min.js" %}"></script>
+<!-- Place inside the <head> of your HTML -->
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea"
+ });
+</script>
+    </head>
+    <body>
+        {% if message %}
+        <p> {{ message }} </p>
+        {% endif %}
+        <form action='/signup/' method = 'POST'>
+            <label>Enter First Name</label><input type='text' name='first_name' required/><br><br>
+            <label>Enter Last Name</label><input type='text' name='last_name'><br><br>
+            <label>Enter User Name</label><input type='text' name='username' required><br><br>
+            <label>Enter Password</label><input type='password' name='password' required><br><br>
+            <label>Enter Email</label><input type='email' name='email' required><br><br>
+            
+            {% csrf_token %}
+            <input type="submit" name="SIGNUP"/>
+        </form>
+    </body>
+</html>

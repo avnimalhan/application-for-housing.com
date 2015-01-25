@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Login </title>
+    </head>
+    <body>
+        {% if message %}
+        <p> {{ message }} </p>
+        {% endif %}
+        <form action='/login/' method = 'POST'>
+            <label>Username</label><input type='text' name='username' /><br><br>
+            <label>Password</label><input type='password' name='password'/><br><br>
+            {% csrf_token %}
+            <input type="submit" name="Login"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>
+		My First Blog
+	</title>
+	
+</head>
+<body>
+    
+        {% if user.is_authenticated %}
+        <h1> Logged In as {{ user.get_full_name }}<a href = '/logout'>Logout</a></h1>
+		{% for blog in blog_list %}
+		<h2>
+			{{blog.title}}
+		</h2>
+		<p>
+			{{blog.content}}
+		</p>
+		{% endfor %}
+
+        {% else %}
+        <a href='/login/'> Login </a>
+        {% endif %}
+
+
+		
+</body>
+</html>
